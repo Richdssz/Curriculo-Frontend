@@ -1,0 +1,62 @@
+/* Barra de rodapé*/
+.footer {
+  border-top: 1px solid var(--salvia);
+  background: var(--papel);
+  margin-top: auto; /* Empurra o footer sempre para o final da tela */
+  padding: 2rem 1.5rem;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.brandGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.brand {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--verde);
+}
+
+.brandDot {
+  color: var(--coral);
+}
+
+.role {
+  font-size: 0.9rem;
+  color: var(--carvao);
+}
+
+.city {
+  font-size: 0.82rem;
+  color: var(--carvao);
+  opacity: 0.75;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.link {
+  color: var(--carvao);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--verde);
+}
