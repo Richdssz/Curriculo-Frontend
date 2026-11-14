@@ -39,31 +39,22 @@
   display: inline-flex;
   align-items: center;
 
-  /* Gelatina: mola ao soltar */
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease, border-color 0.2s ease;
-  
-  /* --- FORÇAR COMPOSIÇÃO 3D REAL NA GPU (Anti-jitter & Zero blur) --- */
-  transform: translate3d(0, 0, 0);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  will-change: transform;
-  -webkit-font-smoothing: subpixel-antialiased;
+  /* Gelatina disparada na volta do clique */
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease, border-color 0.15s ease;
 }
 
-/* 1. Ao passar o mouse: cresce bem pouquinho e sutil */
+/* 1. Ao passar o mouse: apenas transição de cor (ZERO blur, nitidez perfeita) */
 .link:hover {
   color: var(--verde);
-  transform: scale3d(1.025, 1.025, 1) translate3d(0, 0, 0);
 }
 
-/* 2. Segurando o clique: fica comprimido enquanto estiver pressionado */
+/* 2. Segurando o clique: comprime e solta com a gelatina elástica */
 .link:active {
-  transform: scale3d(0.94, 0.94, 1) translate3d(0, 0, 0);
+  transform: scale(0.94);
   transition-duration: 0.08s;
 }
 
-/* 3. Link da página onde você está (selecionado): LARANJA */
+/* 3. Link da página atual (selecionado): LARANJA */
 .active {
   color: var(--coral);
   font-weight: 600;
