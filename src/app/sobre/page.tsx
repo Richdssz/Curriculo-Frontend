@@ -58,6 +58,11 @@ const MODULOS_PROJETO = [
     uso: "Conjunto de ícones vetoriais modernos e leves em formato SVG para links sociais e navegação.",
   },
   {
+    nome: "GitHub REST & Contributions API",
+    versao: "v3 & v4",
+    uso: "Consumo assíncrono combinando duas APIs distintas: a REST oficial do GitHub (v3) para dados de perfil e repositórios, e a GitHub Contributions API (v4 por @grubersjoe) para o histórico diário de commits sem necessidade de expor chaves privadas no front-end.",
+  },
+  {
     nome: "Vercel",
     versao: "Cloud Edge",
     uso: "Infraestrutura de CI/CD com build automático a cada git push e distribuição global na borda (Edge Network).",
@@ -74,7 +79,9 @@ export default function SobrePage() {
       </header>
 
       <section className={styles.secao}>
-        <h2 className={styles.secaoTitulo}>Áreas de Atuação</h2>
+        <div className={styles.secaoCabecalho}>
+          <h2 className={styles.secaoTitulo}>Áreas de Atuação</h2>
+        </div>
         <div className={styles.gridPilares}>
           {PILARES.map((pilar) => (
             <article key={pilar.titulo} className={styles.cardPilar}>
@@ -89,7 +96,9 @@ export default function SobrePage() {
       </section>
 
       <section className={styles.secao}>
-        <h2 className={styles.secaoTitulo}>Formação Acadêmica</h2>
+        <div className={styles.secaoCabecalho}>
+          <h2 className={styles.secaoTitulo}>Formação Acadêmica</h2>
+        </div>
         <div className={styles.listaFormacao}>
           {FORMACOES_ACADEMICAS.map((formacao) => (
             <CardExperiencia key={formacao.id} item={formacao} />
@@ -98,9 +107,11 @@ export default function SobrePage() {
       </section>
 
       <section className={styles.secao}>
-        <h2 className={styles.secaoTitulo}>
-          Tecnologias & Módulos Utilizados no Portfólio
-        </h2>
+        <div className={styles.secaoCabecalho}>
+          <h2 className={styles.secaoTitulo}>
+            Tecnologias & Módulos Utilizados no Portfólio
+          </h2>
+        </div>
         <div className={styles.gridModulos}>
           {MODULOS_PROJETO.map((modulo) => (
             <article key={modulo.nome} className={styles.cardModulo}>

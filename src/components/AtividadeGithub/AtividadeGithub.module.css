@@ -1,0 +1,281 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.estadoCaixa {
+  background: #ffffff;
+  border: 1px solid var(--salvia);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.estadoTexto {
+  font-size: 0.95rem;
+  color: var(--carvao);
+  opacity: 0.8;
+}
+
+.gridMetricas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cardMetrica {
+  background: #ffffff;
+  border: 1px solid var(--salvia);
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cardMetrica:hover {
+  border-color: var(--verde);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 59, 42, 0.06);
+}
+
+.metricaTopo {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.metricaLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--carvao);
+  opacity: 0.85;
+}
+
+.metricaValor {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.1;
+}
+
+.cardGrafico {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--salvia);
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tooltipFlutuante {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  background: var(--carvao);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.42rem 0.72rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  animation: surgirTooltip 0.15s ease-out;
+}
+
+.graficoCabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.graficoTituloGrupo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.graficoTitulo {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--verde);
+}
+
+.linkPerfil {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--coral);
+  transition: opacity 0.2s ease;
+}
+
+.linkPerfil:hover {
+  opacity: 0.8;
+}
+
+/* Scroll horizontal personalizado */
+.graficoScroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 4px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--verde) var(--papel);
+}
+
+.graficoScroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.graficoScroll::-webkit-scrollbar-track {
+  background: var(--papel);
+  border-radius: 999px;
+  border: 1px solid var(--salvia);
+}
+
+.graficoScroll::-webkit-scrollbar-thumb {
+  background: var(--verde);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.graficoScroll::-webkit-scrollbar-thumb:hover {
+  background: var(--coral);
+}
+
+.gradeSemanas {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.colunaSemana {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.celulaVazia {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+.celulaDia {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 1px solid rgba(18, 59, 42, 0.08);
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.2s ease;
+}
+
+.celulaDia:focus {
+  outline: none;
+}
+
+.celulaDia:hover {
+  transform: scale(1.32);
+  border-color: var(--verde);
+  z-index: 2;
+  position: relative;
+}
+
+.celulaDia:active {
+  transform: scale(0.78);
+  transition-duration: 0.08s;
+}
+
+/* Escala de cores Recife Editorial */
+.nivel0 {
+  background: #f3efe6;
+}
+
+.nivel1 {
+  background: #d9e4d2;
+}
+
+.nivel2 {
+  background: #8fbc9f;
+}
+
+.nivel3 {
+  background: #3d7d5e;
+}
+
+.nivel4 {
+  background: #123b2a;
+}
+
+.rodapeGrafico {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(217, 228, 210, 0.6);
+}
+
+.legenda {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legendaTexto {
+  font-size: 0.75rem;
+  color: var(--carvao);
+  opacity: 0.7;
+  margin: 0 4px;
+}
+
+.legendaQuadrado {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1px solid rgba(18, 59, 42, 0.08);
+}
+
+@keyframes surgirTooltip {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 6px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 10px));
+  }
+}
+
+@media (max-width: 768px) {
+  .gridMetricas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cardGrafico {
+    padding: 1.15rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gridMetricas {
+    grid-template-columns: 1fr;
+  }
+}

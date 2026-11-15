@@ -1,10 +1,13 @@
-/* Barra superior fixa/limpa com linha sutil verde */
+/* Barra superior fixa/limpa com linha sutil */
 .header {
   border-bottom: 1px solid var(--salvia);
   background: var(--papel);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
 }
 
-/* Container centralizado para o conteúdo não esticar demais em telas grandes */
 .inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -13,24 +16,22 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap; /* No celular, quebra de linha sem cortar o menu */
 }
 
-/* Nome/marca à esquerda */
-.brand {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--verde);
-}
-
-/* Lista de links */
-.nav {
+/* Grupo Desktop */
+.desktopNavGroup {
   display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-/* Estilo base de cada link */
+.navDesktop {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Estilo base de cada link desktop */
 .link {
   font-size: 0.95rem;
   color: var(--carvao);
@@ -38,25 +39,163 @@
   border-bottom: 2px solid transparent;
   display: inline-flex;
   align-items: center;
-
-  /* Gelatina disparada na volta do clique */
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease, border-color 0.15s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-/* 1. Ao passar o mouse: apenas transição de cor (ZERO blur, nitidez perfeita) */
 .link:hover {
   color: var(--verde);
 }
 
-/* 2. Segurando o clique: comprime e solta com a gelatina elástica */
 .link:active {
   transform: scale(0.94);
   transition-duration: 0.08s;
 }
 
-/* 3. Link da página atual (selecionado): LARANJA */
 .active {
   color: var(--coral);
   font-weight: 600;
   border-bottom-color: var(--coral);
+}
+
+/* Controles Mobile (ocultos no desktop) */
+.mobileControls {
+  display: none;
+}
+
+.btnHamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--salvia);
+  border-radius: 8px;
+  color: var(--verde);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.15s ease;
+}
+
+.btnHamburger:hover {
+  background: rgba(18, 59, 42, 0.06);
+  color: var(--verde);
+}
+
+.btnHamburger:active {
+  transform: scale(0.92);
+}
+
+.btnIconeMobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--verde);
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.btnIconeMobile:hover {
+  background: rgba(18, 59, 42, 0.06);
+}
+
+/* Menu Dropdown Mobile */
+.menuMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .desktopNavGroup {
+    display: none;
+  }
+
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .menuMobile {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--papel);
+    border-top: 1px solid var(--salvia);
+    border-bottom: 1px solid var(--salvia);
+    padding: 0.75rem 1.25rem 1.25rem;
+    animation: deslizarMenu 0.22s ease-out;
+    box-shadow: 0 12px 24px rgba(18, 59, 42, 0.08);
+  }
+
+  .navMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .linkMobile {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--verde);
+    transition:
+      background-color 0.15s ease,
+      transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .linkMobile::before {
+    content: "";
+    width: 3px;
+    height: 1.1em;
+    border-radius: 2px;
+    background: var(--salvia);
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+  }
+
+  .linkMobile:hover {
+    background: rgba(18, 59, 42, 0.05);
+  }
+
+  .linkMobile:active {
+    transform: scale(0.98);
+  }
+
+  .activeMobile {
+    color: var(--coral);
+    background: rgba(240, 100, 79, 0.08);
+  }
+
+  .activeMobile::before {
+    background: var(--coral);
+  }
+}
+
+@keyframes deslizarMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

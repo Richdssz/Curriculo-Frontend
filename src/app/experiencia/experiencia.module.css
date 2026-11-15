@@ -75,6 +75,11 @@
 }
 
 @media (max-width: 768px) {
+  .main {
+    padding: 2.25rem 1.25rem 3.5rem;
+    gap: 2.25rem;
+  }
+
   .gridCards {
     grid-template-columns: 1fr;
   }

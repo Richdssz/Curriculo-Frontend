@@ -1,5 +1,6 @@
 import type { ItemExperiencia } from "@/data/portifolio";
 import { ArrowSquareOutIcon, GithubLogoIcon } from "@phosphor-icons/react/ssr";
+import LogoTecnologia from "@/components/LogoTecnologia/LogoTecnologia";
 import styles from "./CardExperiencia.module.css";
 
 interface CardExperienciaProps {
@@ -59,7 +60,8 @@ export default function CardExperiencia({
         <div className={styles.tags}>
           {item.tags.map((tag) => (
             <span key={tag} className={styles.tag}>
-              {tag}
+              <LogoTecnologia nome={tag} tamanho={13} />
+              <span>{tag}</span>
             </span>
           ))}
         </div>

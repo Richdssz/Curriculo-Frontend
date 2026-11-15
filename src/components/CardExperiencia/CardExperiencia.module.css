@@ -92,10 +92,23 @@
 }
 
 .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--verde);
   background: var(--salvia);
   padding: 0.22rem 0.65rem;
   border-radius: 999px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.25rem 1rem;
+  }
+
+  .titulo {
+    font-size: 1.05rem;
+  }
 }

@@ -1,0 +1,450 @@
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapeu {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--coral);
+}
+
+.titulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.15;
+}
+
+.subtitulo {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--carvao);
+  opacity: 0.88;
+  max-width: 680px;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--salvia);
+  padding-bottom: 1.25rem;
+}
+
+.btnFiltro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid var(--salvia);
+  color: var(--carvao);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnFiltro:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.btnFiltroAtivo {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: #ffffff;
+}
+
+.btnFiltroAtivo:hover {
+  background: var(--verde);
+  color: #ffffff;
+}
+
+.badgeContador {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.btnFiltroAtivo .badgeContador {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* Grid de Projetos */
+.gridProjetos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2.25rem 1.25rem 3.5rem;
+    gap: 2rem;
+  }
+
+  .gridProjetos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.25rem 1rem;
+  }
+
+  .modalBackdrop {
+    padding: 1rem 0.75rem;
+  }
+
+  .modalContent {
+    max-height: 95vh;
+  }
+
+  .modalCabecalho,
+  .modalCorpo,
+  .modalRodape {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .btnModalPrincipal,
+  .btnModalSecundario {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Card de Projeto */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--salvia);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--verde);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 59, 42, 0.06);
+}
+
+.cardCorpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cardTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.badgeVisibilidade {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.badgePublico {
+  background: rgba(18, 59, 42, 0.08);
+  color: var(--verde);
+}
+
+.badgePrivado {
+  background: rgba(36, 40, 32, 0.08);
+  color: var(--carvao);
+}
+
+.badgeStatus {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: var(--salvia);
+  color: var(--verde);
+}
+
+.acoesRapidas {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btnAcaoRapida {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--papel);
+  border: 1px solid var(--salvia);
+  color: var(--verde);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnAcaoRapida:hover {
+  background: var(--verde);
+  color: #ffffff;
+  border-color: var(--verde);
+  transform: translateY(-2px);
+}
+
+.cardTitulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.25;
+}
+
+.cardResumo {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--carvao);
+  opacity: 0.88;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--verde);
+  background: var(--salvia);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.cardRodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--salvia);
+  padding-top: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.btnDetalhes {
+  background: transparent;
+  border: none;
+  color: var(--coral);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.btnDetalhes:hover {
+  color: var(--verde);
+  transform: translateX(3px);
+}
+
+/* Modal */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 59, 42, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overscroll-behavior: contain;
+  animation: fadeIn 0.2s ease;
+}
+
+.modalContent {
+  background: #ffffff;
+  border: 1px solid var(--salvia);
+  border-radius: 16px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 20px 40px rgba(18, 59, 42, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modalCabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--salvia);
+}
+
+.modalTitulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.2;
+}
+
+.btnFechar {
+  background: transparent;
+  border: 1px solid var(--salvia);
+  color: var(--carvao);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btnFechar:hover {
+  background: var(--salvia);
+  color: var(--verde);
+}
+
+.modalCorpo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.blocoModal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rotuloModal {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--coral);
+}
+
+.textoModal {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--carvao);
+  opacity: 0.9;
+}
+
+.modalRodape {
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--salvia);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnModalPrincipal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--coral);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnModalPrincipal:hover {
+  background: #d94f3b;
+  transform: translateY(-2px);
+}
+
+.btnModalSecundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid var(--verde);
+  color: var(--verde);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnModalSecundario:hover {
+  background: var(--verde);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
