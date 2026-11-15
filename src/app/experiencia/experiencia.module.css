@@ -1,0 +1,81 @@
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapeu {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--coral);
+}
+
+.titulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.15;
+}
+
+.subtitulo {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--carvao);
+  opacity: 0.88;
+  max-width: 680px;
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.secaoCabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--salvia);
+  padding-bottom: 0.75rem;
+}
+
+.secaoTitulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--verde);
+}
+
+.secaoContador {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--coral);
+  background: rgba(240, 100, 79, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .gridCards {
+    grid-template-columns: 1fr;
+  }
+}

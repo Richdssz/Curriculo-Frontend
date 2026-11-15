@@ -1,4 +1,3 @@
-/* Container centralizado da Home */
 .main {
   max-width: 1000px;
   margin: 0 auto;
@@ -8,7 +7,7 @@
   gap: 4.5rem;
 }
 
-/* ================= HERO ================= */
+/* Hero */
 .hero {
   display: flex;
   flex-direction: column;
@@ -112,39 +111,140 @@
   transition-duration: 0.08s;
 }
 
-/* ================= VITRINE DE TECNOLOGIAS ================= */
+/* Vitrine de tecnologias */
 .secao {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.secaoTitulo {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--verde);
+.divisorSecao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.gridTecnologias {
+.secaoTitulo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--verde);
+  white-space: nowrap;
+}
+
+.linhaCoral {
+  flex: 1;
+  height: 1.5px;
+  background: var(--coral);
+  opacity: 0.65;
+}
+
+/* Carrossel de tecnologias */
+.carrosselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Máscara suave com fade out nas bordas esquerda e direita */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0.5rem 0;
+}
+
+/* Fita contínua em movimento */
+.fita {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: deslizarParaEsquerda 28s linear infinite;
+  will-change: transform;
+}
+
+.fita:hover {
+  animation-play-state: paused;
+}
+
+/* No desktop, a segunda linha fica oculta (1 linha só no PC) */
+.fitaSegundaLinha {
+  display: none;
+}
+
+/* Animações contínuas sem pulo */
+@keyframes deslizarParaEsquerda {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes deslizarParaDireita {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
   background: #ffffff;
-  border: 1px solid var(--salvia);
-  color: var(--carvao);
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
+  border: 1.5px solid var(--coral);
+  color: var(--coral);
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
   font-size: 0.9rem;
-  font-weight: 500;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .tag:hover {
-  border-color: var(--coral);
-  color: var(--coral);
+  background: rgba(240, 100, 79, 0.08);
+  transform: translateY(-2px);
+}
+
+.gridExperiencias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .gridExperiencias {
+    grid-template-columns: 1fr;
+  }
+
+  .fitaSegundaLinha {
+    display: flex;
+    gap: 0.75rem;
+    width: max-content;
+    animation: deslizarParaDireita 28s linear infinite;
+    will-change: transform;
+  }
+
+  .fitaSegundaLinha:hover {
+    animation-play-state: paused;
+  }
 }

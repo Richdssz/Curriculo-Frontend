@@ -1,14 +1,14 @@
-/* Barra de rodapé*/
+/* Barra de rodapé */
 .footer {
   border-top: 1px solid var(--salvia);
   background: var(--papel);
   margin-top: auto; /* Empurra o footer sempre para o final da tela */
-  padding: 2rem 1.5rem;
 }
 
 .inner {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 2rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
